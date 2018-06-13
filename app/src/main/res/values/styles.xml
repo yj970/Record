@@ -11,7 +11,7 @@
     <style name="Card_TextView">
         <item name="android:layout_width">200dp</item>
         <item name="android:layout_height">100dp</item>
-        <item name="android:background">@drawable/bg_card</item>
+        <!--<item name="android:background">@drawable/bg_card</item>-->
         <item name="android:textSize">20sp</item>
         <item name="android:layout_margin">10dp</item>
         <item name="android:gravity">center</item>

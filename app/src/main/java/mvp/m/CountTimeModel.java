@@ -2,6 +2,8 @@ package mvp.m;
 
 import javax.inject.Inject;
 
+import mvp.Constant;
+
 /**
  * Created by yj on 2018/6/12.
  */
@@ -38,14 +40,29 @@ public class CountTimeModel {
         second = second % 60;                //剩余秒数
 
         String sDay = String.valueOf(days).length() > 1 ? String.valueOf(days) : "0"+String.valueOf(days);
-        String sHours = String.valueOf(days).length() > 1 ? String.valueOf(hours) : "0"+String.valueOf(hours);
-        String sMin = String.valueOf(days).length() > 1 ? String.valueOf(minutes) : "0"+String.valueOf(minutes);
-        String sSecond = String.valueOf(days).length() > 1 ? String.valueOf(second) : "0"+String.valueOf(second);
+        String sHours = String.valueOf(hours).length() > 1 ? String.valueOf(hours) : "0"+String.valueOf(hours);
+        String sMin = String.valueOf(minutes).length() > 1 ? String.valueOf(minutes) : "0"+String.valueOf(minutes);
+        String sSecond = String.valueOf(second).length() > 1 ? String.valueOf(second) : "0"+String.valueOf(second);
 
         if(days>0){
             return sDay + ":" + sHours + ":" + sMin + ":" + sSecond;
         }else{
             return sHours + ":" + sMin + ":" + sSecond;
+        }
+    }
+
+    public String getType(String taskType) {
+        switch (taskType) {
+            case Constant.TaskType.Task_COOK:
+                return "烹饪";
+            case Constant.TaskType.Task_TRAIN:
+                return "锻炼";
+            case Constant.TaskType.Task_READ:
+                return "读书";
+            case Constant.TaskType.Task_STUDY:
+                return "学习";
+            default:
+                return "未知";
         }
     }
 }

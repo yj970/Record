@@ -1,5 +1,6 @@
 package mvp.m;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.inject.Inject;
@@ -18,6 +19,7 @@ public class MainModel {
 
     public String getNowDate() {
         Date date = new Date(System.currentTimeMillis());
-        return date.toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(date);
     }
 }

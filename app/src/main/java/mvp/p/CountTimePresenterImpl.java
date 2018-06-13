@@ -36,8 +36,8 @@ public class CountTimePresenterImpl implements Contract.CountTimePresenter {
 
     @Override
     public void init(String taskType, String nowDate) {
-        view.init(taskType, nowDate);
-
+        String type = model.getType(taskType);
+        view.init(type, nowDate);
         // 启动定时器
         model.resetTime();
         timer.schedule(new TimerTask() {
@@ -53,6 +53,11 @@ public class CountTimePresenterImpl implements Contract.CountTimePresenter {
             }
         }, 0, 1000);
 
+    }
+
+    @Override
+    public void stopCount() {
+        timer.cancel();
     }
 
     /**

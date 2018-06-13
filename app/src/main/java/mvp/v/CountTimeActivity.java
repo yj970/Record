@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 import com.yj.record.R;
@@ -12,6 +13,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import dagger2.component.DaggerCountTimeComponent;
 import dagger2.module.CountTimeViewModule;
 import mvp.Constant;
@@ -53,6 +55,16 @@ public class CountTimeActivity extends AppCompatActivity implements Contract.Cou
         String nowDate = getIntent().getStringExtra(Constant.NOW_DATE);
         presenter.init(taskType, nowDate);
     }
+
+    @OnClick({R.id.tv_complete})
+    void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tv_complete:
+                presenter.stopCount();
+                break;
+        }
+    }
+
 
     @Override
     public void init(String taskType, String nowDate) {

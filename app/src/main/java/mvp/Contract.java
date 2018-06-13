@@ -22,6 +22,8 @@ public class Contract {
    public interface CountTimePresenter {
        void init(String taskType, String nowDate);
 
+       void stopCount();
+
        void recovery();
    }
 }
