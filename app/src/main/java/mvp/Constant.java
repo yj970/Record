@@ -5,10 +5,11 @@ package mvp;
  */
 
 public interface Constant {
-    String NOW_DATE = "NOW_DATE";
+    String STATE_DATE = "STATE_DATE";
+    String TIME = "TIME";
 
      interface TaskType {
-         String Task_TYPE = "CARD_TYPE";
+         String TASK_TYPE = "CARD_TYPE";
          String Task_COOK = "CARD_COOK";
          String Task_TRAIN = "CARD_TRAIN";
          String Task_READ = "CARD_READ";

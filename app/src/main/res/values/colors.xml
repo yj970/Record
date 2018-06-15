@@ -145,4 +145,11 @@
     <color name="grassgreen">#99cc33</color><!--草绿色 -->
     <color name="gray_cc">#cccccc</color><!--灰色cc -->
     <color name="gray_8f">#8f8f8f</color><!--灰色8f -->
+
+
+    <color name="gray_bg">#34333B</color>
+    <color name="gray_bg_press">#333333</color>
+    <color name="gray_stroke">#4A494E</color>
+    <color name="gray_item">#343339</color>
+    <color name="gray_item_text">#9998A0</color>
 </resources>

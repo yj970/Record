@@ -1,6 +1,8 @@
 package mvp.p;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -28,4 +30,12 @@ public class MainPresenterImpl implements Contract.MainPresenter{
         String nowDate = model.getNowDate();
         view.startTask(nowDate, taskType);
     }
+
+    @Override
+    public void init() {
+//        Bitmap bgBitmap = model.getBgBitmap(view instanceof Activity ? (Activity)view : ((Fragment)view).getActivity());
+//        view.initBg(bgBitmap);
+    }
+
+
 }

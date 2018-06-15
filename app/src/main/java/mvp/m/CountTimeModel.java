@@ -2,7 +2,7 @@ package mvp.m;
 
 import javax.inject.Inject;
 
-import mvp.Constant;
+import utils.TaskUtil;
 
 /**
  * Created by yj on 2018/6/12.
@@ -10,6 +10,8 @@ import mvp.Constant;
 
 public class CountTimeModel {
     private long time = 0;
+    private String startDate;
+    private String taskType;
 
 
     @Inject
@@ -23,6 +25,10 @@ public class CountTimeModel {
 
     public String updateTime() {
         time++;
+        return secondToTime(time);
+    }
+
+    public String getTime() {
         return secondToTime(time);
     }
 
@@ -51,18 +57,30 @@ public class CountTimeModel {
         }
     }
 
-    public String getType(String taskType) {
-        switch (taskType) {
-            case Constant.TaskType.Task_COOK:
-                return "烹饪";
-            case Constant.TaskType.Task_TRAIN:
-                return "锻炼";
-            case Constant.TaskType.Task_READ:
-                return "读书";
-            case Constant.TaskType.Task_STUDY:
-                return "学习";
-            default:
-                return "未知";
-        }
+
+    public String getShowType() {
+       return TaskUtil.getType(taskType);
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getTaskType() {
+        return taskType;
+    }
+
+    public void setTaskType(String taskType) {
+        this.taskType = taskType;
+    }
+
+    // 存储这次任务
+    public void saveRecord() {
+        Record record = new Record(startDate, getTime(), TaskUtil.getType(taskType));
+        record.save();
     }
 }

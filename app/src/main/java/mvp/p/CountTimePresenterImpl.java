@@ -1,11 +1,6 @@
 package mvp.p;
 
-import android.app.Activity;
 import android.os.Handler;
-import android.os.Message;
-import android.support.annotation.MainThread;
-import android.support.annotation.UiThread;
-import android.util.Log;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -36,7 +31,11 @@ public class CountTimePresenterImpl implements Contract.CountTimePresenter {
 
     @Override
     public void init(String taskType, String nowDate) {
-        String type = model.getType(taskType);
+        // 存储数据
+        model.setStartDate(nowDate);
+        model.setTaskType(taskType);
+
+        String type = model.getShowType();
         view.init(type, nowDate);
         // 启动定时器
         model.resetTime();
@@ -67,6 +66,13 @@ public class CountTimePresenterImpl implements Contract.CountTimePresenter {
     public void recovery() {
         timer.cancel();
         timer = null;
+    }
+
+    @Override
+    public void complete() {
+        timer.cancel();
+        model.saveRecord();
+        view.gotoComplete(model.getStartDate(), model.getTaskType(), model.getTime());
     }
 
 }

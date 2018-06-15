@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   >
+    android:background="@color/gray_bg">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -10,25 +11,73 @@
         android:layout_centerInParent="true"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_cook"
-            style="@style/Card_TextView"
-            android:text="烹饪"/>
+        <LinearLayout
+            style="@style/Card_parent"
+            android:id="@+id/ll_cook">
+            <TextView
+                style="@style/Card_1"
+                android:text="鸡腿"
+               />
+            <TextView
+                style="@style/Card_2"
+                android:text="烹饪大江南北的菜式，尝尽酸甜苦辣的佳肴"
+                />
+            <TextView
+                style="@style/Card_3"
+                android:text="煮饭"
+                 />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_train"
-            style="@style/Card_TextView"
-            android:text="锻炼"/>
+        <LinearLayout
+            style="@style/Card_parent"
+            android:id="@+id/ll_train">
+            <TextView
+                style="@style/Card_1"
+                android:text="跑步"
+                />
+            <TextView
+                style="@style/Card_2"
+                android:text="肥胖的身体拖累生活，找不到女朋友只赖自己"
+                />
+            <TextView
+                style="@style/Card_3"
+                android:text="锻炼"
+                />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_read"
-            style="@style/Card_TextView"
-            android:text="看书"/>
+        <LinearLayout
+            style="@style/Card_parent"
+            android:id="@+id/ll_read">
+            <TextView
+                style="@style/Card_1"
+                android:text="小说"
+                />
+            <TextView
+                style="@style/Card_2"
+                android:text="阅读别人璀璨的人生，充实自己空洞无聊的灵魂"
+                />
+            <TextView
+                style="@style/Card_3"
+                android:text="读书"
+                />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_study"
-            style="@style/Card_TextView"
-            android:text="学习"/>
+        <LinearLayout
+            style="@style/Card_parent"
+            android:id="@+id/ll_study">
+            <TextView
+                style="@style/Card_1"
+                android:text="充电"
+                />
+            <TextView
+                style="@style/Card_2"
+                android:text="滴水穿石，日积月累的力量总有一天会爆发"
+                />
+            <TextView
+                style="@style/Card_3"
+                android:text="学习"
+                />
+        </LinearLayout>
 
 
     </LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <!--创建数据库名-->
+    <dbname value="record_db" />
+    <!--创建数据库版本-->
+    <version value="1" />
+    <list>
+        <!--建立记录表-->
+        <mapping class="mvp.m.Record" />
+    </list>
+</litepal>

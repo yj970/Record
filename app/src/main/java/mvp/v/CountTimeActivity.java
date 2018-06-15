@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
@@ -24,7 +25,7 @@ import mvp.p.CountTimePresenterImpl;
  * Created by yj on 2018/6/12.
  */
 
-public class CountTimeActivity extends AppCompatActivity implements Contract.CountTimeView {
+public class CountTimeActivity extends BaseActivity implements Contract.CountTimeView {
     @Inject
     CountTimePresenterImpl presenter;
     @BindView(R.id.tv_start_time)
@@ -33,13 +34,11 @@ public class CountTimeActivity extends AppCompatActivity implements Contract.Cou
     TextView tvCountTime;
     @BindView(R.id.tv_complete)
     TextView tvComplete;
-    @BindView(R.id.tv_type)
-    TextView tvType;
 
     public static void startCountTimeActivity(Activity activity, String nowDate, String TaskType) {
         Intent intent = new Intent(activity, CountTimeActivity.class);
-        intent.putExtra(Constant.TaskType.Task_TYPE, TaskType);
-        intent.putExtra(Constant.NOW_DATE, nowDate);
+        intent.putExtra(Constant.TaskType.TASK_TYPE, TaskType);
+        intent.putExtra(Constant.STATE_DATE, nowDate);
         activity.startActivity(intent);
     }
 
@@ -47,12 +46,11 @@ public class CountTimeActivity extends AppCompatActivity implements Contract.Cou
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_count_time);
-        ButterKnife.bind(this);
 
         DaggerCountTimeComponent.builder().countTimeViewModule(new CountTimeViewModule(this)).build().inject(this);
 
-        String taskType = getIntent().getStringExtra(Constant.TaskType.Task_TYPE);
-        String nowDate = getIntent().getStringExtra(Constant.NOW_DATE);
+        String taskType = getIntent().getStringExtra(Constant.TaskType.TASK_TYPE);
+        String nowDate = getIntent().getStringExtra(Constant.STATE_DATE);
         presenter.init(taskType, nowDate);
     }
 
@@ -60,7 +58,7 @@ public class CountTimeActivity extends AppCompatActivity implements Contract.Cou
     void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_complete:
-                presenter.stopCount();
+                presenter.complete();
                 break;
         }
     }
@@ -69,12 +67,18 @@ public class CountTimeActivity extends AppCompatActivity implements Contract.Cou
     @Override
     public void init(String taskType, String nowDate) {
         tvStartTime.setText(nowDate);
-        tvType.setText(taskType);
+        toolbar.setTitle(taskType);
     }
 
     @Override
     public void setTime(String time) {
         tvCountTime.setText(time);
+    }
+
+    @Override
+    public void gotoComplete(String nowDate, String type, String time) {
+        HistoryRecordListActivity.startHistoryRecordListActivity(this);
+        finish();
     }
 
     @Override
