@@ -27,4 +27,13 @@ public class HistoryRecordListPresenterImpl implements Contract.HistoryRecordLis
         List<Record> list = model.getHistoryRecordData();
         view.setHistoryRecordList(list);
     }
+
+    @Override
+    public void deleteRecord(Record record, int position) {
+        // 数据库删除
+        model.deleteRecord(record);
+        // UI删除
+        view.deleteRecord(record, position);
+    }
+
 }

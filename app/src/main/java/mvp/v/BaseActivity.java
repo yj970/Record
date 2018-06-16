@@ -28,8 +28,8 @@ public class BaseActivity extends AppCompatActivity{
     public void setContentView(int layout) {
         super.setContentView(layout);
         ButterKnife.bind(this);
-        bindToolbar(toolbar);
         setToolbarNavigationIconClickListener(toolbar);
+        bindToolbar(toolbar);
     }
 
     public void bindToolbar(Toolbar toolbar) {}

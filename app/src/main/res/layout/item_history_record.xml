@@ -2,8 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="40dp"
-    android:background="@color/gray_item">
+    android:minHeight="65dp"
+    android:background="@color/gray_item"
+    android:id="@+id/rl_parent">
 
 
     <TextView
@@ -21,7 +22,6 @@
         android:textColor="@color/white"
         android:layout_below="@id/tv_start_date"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
         android:textSize="25sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,12 +32,19 @@
         android:textSize="20sp"
         android:text="00:00:00"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:layout_toRightOf="@id/tv_task_type"
         android:layout_below="@id/tv_start_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tv_time"/>
 
+    <View
+        android:id="@+id/line"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_stroke"/>
 
 </RelativeLayout>

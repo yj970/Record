@@ -43,9 +43,13 @@ public class Contract {
 
     public interface HistoryRecordListView {
         void setHistoryRecordList(List<Record> list);
+
+        void deleteRecord(Record record, int position);
     }
 
     public interface HistoryRecordListPresenter {
         void init();
+
+        void deleteRecord(Record record, int position);
     }
 }

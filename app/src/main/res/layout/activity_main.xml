@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rl_bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -80,6 +81,57 @@
         </LinearLayout>
 
 
+    </LinearLayout>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/add"
+        android:id="@+id/fab_add"
+        app:backgroundTint="@color/orange"
+        app:rippleColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        app:fabSize="normal"
+        android:layout_margin="10dp"/>
+
+    <LinearLayout
+        android:layout_alignParentRight="true"
+        android:layout_above="@id/fab_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_action_parent"
+        android:visibility="gone"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginRight="20dp"
+            android:id="@+id/ll_history"
+            >
+            <android.support.design.widget.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/menu"
+                app:backgroundTint="@color/orange"
+                app:rippleColor="@color/white"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                app:fabSize="mini"
+                />
+            <TextView
+                android:layout_marginTop="2dp"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:text="历史"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

@@ -27,4 +27,8 @@ public class HistoryRecordListModel {
         historyRecordData = LitePal.findAll(Record.class);
         return historyRecordData;
     }
+
+    public void deleteRecord(Record record) {
+        record.delete();
+    }
 }
