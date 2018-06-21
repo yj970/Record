@@ -47,8 +47,7 @@
             android:layout_centerHorizontal="true"
             android:textColor="@color/white"
             android:layout_margin="20dp"
-            android:background="@drawable/bg_btn"
-            android:textSize="30sp"
+            android:textSize="10sp"
             android:layout_alignParentBottom="true"
             android:id="@+id/tv_complete"
             android:layout_width="100dp"
@@ -56,6 +55,7 @@
             android:layout_marginBottom="50dp"
             android:gravity="center"
             android:text="完成" />
+    <!--android:background="@drawable/bg_btn"-->
 
 
 </RelativeLayout>

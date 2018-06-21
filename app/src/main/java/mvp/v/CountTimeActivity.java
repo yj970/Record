@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yj.record.R;
 
@@ -53,18 +54,21 @@ public class CountTimeActivity extends BaseActivity implements Contract.CountTim
 
         DaggerCountTimeComponent.builder().countTimeViewModule(new CountTimeViewModule(this)).build().inject(this);
 
+        setListener();
+
         String taskType = getIntent().getStringExtra(Constant.TaskType.TASK_TYPE);
         String nowDate = getIntent().getStringExtra(Constant.STATE_DATE);
         presenter.init(taskType, nowDate);
     }
 
-    @OnClick({R.id.tv_complete})
-    void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.tv_complete:
-//                presenter.complete();
-                break;
-        }
+    public void setListener() {
+        tvComplete.setTimerTaskCompleteImpl(new ProgressTextView.ITimerTaskCompleteListener() {
+            @Override
+            public void onTimerTaskComplete() {
+                Toast.makeText(CountTimeActivity.this, "完成了！", Toast.LENGTH_SHORT).show();
+                presenter.complete();
+            }
+        });
     }
 
 
