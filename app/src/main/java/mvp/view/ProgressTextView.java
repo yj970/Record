@@ -1,4 +1,4 @@
-package mvp.view;
+﻿package mvp.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -64,9 +64,6 @@ public class ProgressTextView extends TextView {
     public ProgressTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.View);
-        width = typedArray.getInt(R.styleable.ConstraintSet_android_layout_width, 0);
-        height = typedArray.getInt(R.styleable.ConstraintSet_android_layout_height, 0);
     }
 
     public ProgressTextView(Context context) {
