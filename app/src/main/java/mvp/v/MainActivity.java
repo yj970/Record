@@ -7,6 +7,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -52,7 +53,6 @@ public class MainActivity extends BaseActivity implements Contract.MainView {
         // 利用 darrger2 实例化 presenter
         DaggerMainViewComponent.builder().mainViewModule(new MainViewModule(this)).build().inject(this);
         presenter.init();
-
 
     }
 

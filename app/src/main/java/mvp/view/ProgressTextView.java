@@ -1,4 +1,4 @@
-﻿package mvp.view;
+package mvp.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;

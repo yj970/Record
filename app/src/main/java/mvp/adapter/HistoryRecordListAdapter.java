@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -24,7 +25,7 @@ import mvp.m.Record;
 public class HistoryRecordListAdapter extends RecyclerView.Adapter<HistoryRecordListAdapter.ViewHolder>{
     private List<Record> data;
     ILongClickListener longClickListenerImpl;
-
+    IEditClickListener editClickListenerImpl;
 
     @Inject
     public HistoryRecordListAdapter() {
@@ -49,6 +50,15 @@ public class HistoryRecordListAdapter extends RecyclerView.Adapter<HistoryRecord
                     longClickListenerImpl.onLongClickListener(data.get(position), position);
                 }
                 return true;
+            }
+        });
+
+        holder.flEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (editClickListenerImpl != null) {
+                    editClickListenerImpl.onEditClick(data.get(position));
+                }
             }
         });
     }
@@ -79,6 +89,8 @@ public class HistoryRecordListAdapter extends RecyclerView.Adapter<HistoryRecord
         View line;
         @BindView(R.id.rl_parent)
         RelativeLayout item;
+        @BindView(R.id.fl_edit)
+        FrameLayout flEdit;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -109,5 +121,13 @@ public class HistoryRecordListAdapter extends RecyclerView.Adapter<HistoryRecord
 
     public void setLongClickListenerImpl(ILongClickListener longClickListenerImpl) {
         this.longClickListenerImpl = longClickListenerImpl;
+    }
+
+    public interface IEditClickListener {
+        void onEditClick(Record record);
+    }
+
+    public void setEditClickListenerImpl(IEditClickListener editClickListenerImpl) {
+        this.editClickListenerImpl = editClickListenerImpl;
     }
 }

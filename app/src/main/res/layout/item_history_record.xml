@@ -39,6 +39,20 @@
         android:layout_height="wrap_content"
         android:id="@+id/tv_time"/>
 
+    <FrameLayout
+        android:id="@+id/fl_edit"
+        android:layout_alignParentRight="true"
+        android:layout_width="60dp"
+        android:layout_height="65dp"
+        >
+    <ImageView
+        android:layout_marginRight="10dp"
+        android:layout_gravity="center_vertical|right"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@mipmap/icon_edit"/>
+    </FrameLayout>
+
     <View
         android:id="@+id/line"
         android:layout_marginLeft="20dp"

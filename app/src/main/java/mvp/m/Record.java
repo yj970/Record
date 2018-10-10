@@ -2,14 +2,17 @@ package mvp.m;
 
 import org.litepal.crud.LitePalSupport;
 
+import java.io.Serializable;
+
 /**
  * Created by yj on 2018/6/15.
  */
 
-public class Record extends LitePalSupport{
+public class Record extends LitePalSupport implements Serializable{
     private String startDate;
     private String time;
     private String taskType;
+    private String msg;// 心得
 
     public Record(String startDate, String time, String taskType) {
         this.startDate = startDate;
@@ -42,5 +45,13 @@ public class Record extends LitePalSupport{
 
     public void setTaskType(String taskType) {
         this.taskType = taskType;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 }

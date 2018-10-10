@@ -20,6 +20,7 @@ import dagger2.module.HistoryRecordListModule;
 import mvp.Contract;
 import mvp.adapter.HistoryRecordListAdapter;
 import mvp.dialog.MaterialDialog;
+import mvp.fragment.EditExperienceDialogFragment;
 import mvp.m.Record;
 import mvp.p.HistoryRecordListPresenterImpl;
 
@@ -61,6 +62,19 @@ public class HistoryRecordListActivity extends BaseActivity implements Contract.
                 showDeleteDialog(record, position);
             }
         });
+
+        adapter.setEditClickListenerImpl(new HistoryRecordListAdapter.IEditClickListener() {
+            @Override
+            public void onEditClick(Record record) {
+                showEditDialog(record);
+            }
+        });
+    }
+
+    // 显示心得dialog
+    private void showEditDialog(Record record) {
+        EditExperienceDialogFragment editNameDialog = EditExperienceDialogFragment.getInstance(record);
+        editNameDialog.show(getSupportFragmentManager(), "EditExperienceDialogFragment");
     }
 
     private void initView() {

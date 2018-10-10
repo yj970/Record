@@ -7,6 +7,7 @@ package mvp;
 public interface Constant {
     String STATE_DATE = "STATE_DATE";
     String TIME = "TIME";
+    String RECORD = "RECORD";
 
      interface TaskType {
          String TASK_TYPE = "CARD_TYPE";

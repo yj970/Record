@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_edit_experience">
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/tv"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="备注"/>
+
+    <View
+        android:layout_below="@+id/tv"
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/darkgray"/>
+
+    <EditText
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_dialog_edit_experience"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:layout_below="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/et"/>
+    <Button
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_dialog_edit_experience"
+        android:id="@+id/btn_save"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/et"
+        android:text="保存"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp" />
+    <ImageView
+        android:layout_margin="10dp"
+        android:src="@mipmap/x"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/iv_close"/>
+</RelativeLayout>
