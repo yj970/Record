@@ -2,7 +2,6 @@ package mvp.m;
 
 import org.litepal.LitePal;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -24,7 +23,7 @@ public class HistoryRecordListModel {
     }
 
     public List<Record> getHistoryRecordData() {
-        historyRecordData = LitePal.findAll(Record.class);
+        historyRecordData = LitePal.order("id desc").find(Record.class);
         return historyRecordData;
     }
 
